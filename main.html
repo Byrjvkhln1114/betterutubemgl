@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        background-image: url(http://papers.co/wallpaper/papers.co-bl91-art-anime-japan-street-41-iphone-wallpaper.jpg);
+        background-size: cover;
+      }
+      .main {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .neg {
+        background-image: url(https://yt3.ggpht.com/rSkiyCCZ7XfgNLCICKQGvejB7WauQT7xm-1DZ6llaHC-xwAB88lObIVR0psc9Uh4-jAb-pox=s176-c-k-c0x00ffffff-no-rj-mo);
+      }
+      .hoyr {
+        background-image: url(https://yt3.ggpht.com/ytc/AMLnZu_uByi7gLNVEKvvpBQ79_ymTVrVq6lyZErVO6AXsDg=s176-c-k-c0x00ffffff-no-rj-mo);
+      }
+      .container {
+        width: 100%;
+        height: 100vh;
+        display: none;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .b {
+        background-size: cover;
+        width: 65%;
+        height: 70%;
+        cursor: pointer;
+      }
+      .text {
+        height: 15%;
+        width: 100%;
+      }
+      .soul {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        z-index: 10000;
+        background-color: white;
+        display: none;
+      }
+      .win {
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .lose {
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .start {
+        background-color: green;
+        width: 150px;
+        height: 60px;
+        border-radius: 5px;
+        color: white;
+      }
+      .reload {
+        background-color: rgb(219, 148, 15);
+        width: 150px;
+        height: 60px;
+        border-radius: 5px;
+        color: black;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        border: 1px solid black;
+      }
+      .start:hover {
+        background-color: rgb(124, 139, 124);
+        width: 150px;
+        height: 60px;
+        border-radius: 5px;
+        color: black;
+        border: 1px solid black;
+      }
+      .reload {
+        display: none;
+      }
+    </style>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div
+      onclick="start()"
+      id="end"
+      class="start d-flex justify-content-center align-items-center fs-1"
+    >
+      Start
+    </div>
+    <div onclick="reload()" id="reload" class="reload fs-2">Reload</div>
+    <div id="win" class="soul win"></div>
+    <div id="start" class="container">
+      <div class="main">
+        <div onclick="p1()" class="b neg"></div>
+      </div>
+      <div
+        class="text d-flex justify-content-center align-items-center fs-3 text-center bg-light"
+      >
+        Who has more subscribers?
+        <div id="score"></div>
+      </div>
+      <div class="main">
+        <div onclick="p2()" class="b hoyr"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    var boldo = true;
+    const start = () => {
+      if (boldo) {
+        document.getElementById("start").style.display = "flex";
+        document.getElementById("end").innerHTML = "end";
+        boldo = !boldo;
+      } else {
+        document.getElementById("win").style.display = "flex";
+        document.getElementById("end").innerHTML = "Try again";
+        document.getElementById("reload").style.display = "flex";
+
+        if (p1_score > p2_score) {
+          document.getElementById("win").innerHTML = "gremix";
+        } else {
+          document.getElementById("win").innerHTML = "Tushig";
+        }
+      }
+    };
+    let p1_score = 0;
+    let p2_score = 0;
+    let score = 0;
+    const p1 = () => {
+      p1_score++;
+      score++;
+      document.getElementById("score").innerHTML = score;
+    };
+    const p2 = () => {
+      p2_score++;
+      score++;
+      document.getElementById("score").innerHTML = score;
+    };
+    if (score == 10) {
+      console.log("bata");
+    }
+    const reload = () => {
+      location.reload();
+    };
+  </script>
+</html>
